@@ -1,0 +1,18 @@
+<div class="search-container">
+  <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+    <input
+      class="search-input"
+      name="search"
+      ngModel
+      placeholder="Search..."
+    />
+    <button class="search-button">Search</button>
+  </form>
+</div>
+  
+    <a [routerLink]="['/']" class="search-button">All Moviest</a>
+    <a [matBadge]="notification" matBadgeColor="warn" [matBadgeHidden]="notification===0" [routerLink]="['cart']" class="search-button">My Movies</a>
+    
+ 
+
