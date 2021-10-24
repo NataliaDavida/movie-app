@@ -5,8 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
-import { GaugeModule } from 'angular-gauge';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,6 +16,7 @@ import { SearchBarComponent } from './componentes/search-bar/search-bar.componen
 import { HomeComponent } from './componentes/home/home.component';
 import { DetailsComponent } from './componentes/details/details.component';
 import { CartComponent } from './componentes/cart/cart.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -36,7 +35,6 @@ import { CartComponent } from './componentes/cart/cart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GaugeModule.forRoot(),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -48,6 +46,7 @@ import { CartComponent } from './componentes/cart/cart.component';
     MatBadgeModule,
     MatAutocompleteModule,
     MatIconModule,
+    RouterModule,
  
   ],
   providers: [],
