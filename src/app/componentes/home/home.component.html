@@ -1,5 +1,5 @@
 <div class="movies">  
-    <ng-container *ngFor="let movie of movies">
+    <ng-container *ngFor="let movie of movies | filter: searchKey: 'title'">
       <div class="movie" (click)="openMovieDetails(movie.id)" >
         <div class="movie-container" >
           <img

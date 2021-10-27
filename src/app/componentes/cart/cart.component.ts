@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -15,12 +15,12 @@ export class CartComponent implements OnInit {
 
     ngOnInit() {
      this.items = JSON.parse(localStorage.getItem("movie") || '[]')
+     
     }
 
     deleteFromCart(item: any) {
       window.alert('Your product has been delete from the cart!');
-   
-      
+      this.cartService.deleteFromCart(item);
       console.log(this.items)
     }
 }

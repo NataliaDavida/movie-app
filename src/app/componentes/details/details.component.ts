@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Movie } from '../../models';
-import { CartService } from '../services/cart.service';
-import { HttpService } from '../services/http.service';
+import { CartService } from '../../services/cart.service';
+import { HttpService } from '../../services/http.service';
 
 
 @Component({
