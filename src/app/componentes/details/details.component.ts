@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { Movie } from '../../models';
 import { CartService } from '../../services/cart.service';
 import { HttpService } from '../../services/http.service';
@@ -22,7 +23,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     private httpService: HttpService,
     private cartService: CartService,
-  
+    private authService: AuthService,
+    private router: Router,
  
   ) { }
 
@@ -46,6 +48,11 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
     
   addToCart(item: any) {
+   
+    if (!this.authService.isLogin()) {
+      this.router.navigate(['/signin'])
+      return;
+    }
     window.alert('Your product has been added to the cart!');
     this.cartService.addToCart(item);
   }

@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './componentes/cart/cart.component';
+import { CartComponent } from './cart/components/cart/cart.component';
 import { DetailsComponent } from './componentes/details/details.component';
 import { HomeComponent } from './componentes/home/home.component';
+import { AuthorizationGuard } from './guards/authorization.guard';
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
     component: DetailsComponent,
   },
   { 
-    path: 'cart', component: CartComponent,
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then((m) =>m.CartModule),
+    canActivate: [AuthorizationGuard]
   },
   
 

@@ -1,5 +1,6 @@
 
 <div class="search-container">
+  <a  [routerLink]="['/']" class="logo">All Movies</a>
   <div class="search-form">
 
     <input
@@ -10,10 +11,10 @@
       placeholder="Search..."/>
    
   </div>
+    <button *ngIf="authService.isLogin()" mat-raised-button type="submit" color="primary" [routerLink]="['/cart']">My List</button>
+    <button *ngIf="!authService.isLogin()" mat-raised-button type="submit" color="primary" [routerLink]="['/signin']">Sing In</button>
+    <button *ngIf="authService.isLogin()" mat-raised-button type="submit" color="primary" (click)="logOut()">logout</button>
 
- 
-  <a  [routerLink]="['/']" class="search-button">All Movies</a>
-  <a  [routerLink]="['/cart']" class="search-button">My Movies</a>
 </div>
   
 

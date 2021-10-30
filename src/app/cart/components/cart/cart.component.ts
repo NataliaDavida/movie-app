@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../../services/cart.service';
+import { Router } from '@angular/router';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ export class CartComponent implements OnInit {
  
   items: any;
 
-  constructor( private cartService: CartService) {}
+  constructor( private cartService: CartService, private router: Router) {}
   
 
     ngOnInit() {
@@ -22,5 +23,11 @@ export class CartComponent implements OnInit {
       window.alert('Your product has been delete from the cart!');
       this.cartService.deleteFromCart(item);
       console.log(this.items)
+    }
+    
+    logout() {
+      setTimeout(() => {
+        this.router.navigate(['/signin'])
+      }, 2000)
     }
 }

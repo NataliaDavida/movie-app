@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subject, throwError } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged, switchMap, catchError,  debounce } from 'rxjs/operators';
 import { SearchService } from 'src/app/services/search.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -17,6 +18,7 @@ export class SearchBarComponent implements OnInit {
 
   constructor(private router: Router,
     private searchService: SearchService,
+    public authService: AuthService,
   ) { }
 
 
@@ -28,7 +30,12 @@ export class SearchBarComponent implements OnInit {
     console.log(this.searchTerm);
     this.searchService.search.next(this.searchTerm);
   }
-
+  logOut() {
+    this.authService.logout().subscribe(()=>{
+      localStorage.removeItem('session_id')
+      this.router.navigate(['/'])
+    })
+  }
 }
 
 

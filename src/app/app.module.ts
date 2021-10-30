@@ -4,18 +4,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './componentes/search-bar/search-bar.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { DetailsComponent } from './componentes/details/details.component';
-import { CartComponent } from './componentes/cart/cart.component';
 import { RouterModule } from '@angular/router';
 import { FilterPipe } from './shared/filter.pipe';
-
-
-
+import { AuthModule } from './auth/auth.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+;
 
 
 
@@ -25,10 +24,8 @@ import { FilterPipe } from './shared/filter.pipe';
     SearchBarComponent,
     HomeComponent,
     DetailsComponent,
-    CartComponent,
     FilterPipe,
- 
-
+    
   ],
   imports: [
     BrowserModule,
@@ -36,12 +33,13 @@ import { FilterPipe } from './shared/filter.pipe';
     ReactiveFormsModule,
     HttpClientModule ,
     AppRoutingModule,
-    MatBadgeModule,
-    MatAutocompleteModule,
     MatIconModule,
     RouterModule,
+    AuthModule,
+    MatMenuModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
    
- 
   ],
   providers: [],
   bootstrap: [AppComponent]
