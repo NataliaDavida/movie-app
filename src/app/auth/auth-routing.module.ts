@@ -9,7 +9,6 @@ const routes: Routes = [
     component: SignInComponent,
   },
 
-
 ];
 
 @NgModule({

@@ -37,7 +37,7 @@ export class SignInComponent implements OnInit {
       .pipe(
         switchMap((token: TokenInterface)=>{
           const body = this.formGroup.value;
-          body.request_token = token.request_token; //{ username: "" , password: '', request_token: 'asdasdasdasdasdasdas'}
+          body.request_token = token.request_token;
           return this.authService.validate(body)
         }),
         switchMap((token:TokenInterface )=>{

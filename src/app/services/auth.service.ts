@@ -22,7 +22,6 @@ export class AuthService {
   }
   
   public validate(body: any): Observable<TokenInterface> {
-    // { username: "" , password: '', request_token: 'asdasdasdasdasdasdas'}
     return this.http.post<TokenInterface>(`${environment.BASE_URL}/authentication/token/validate_with_login?${environment.API_KEY}`, body);
   }
   

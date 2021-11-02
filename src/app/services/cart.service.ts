@@ -23,9 +23,11 @@ export class CartService {
 
   deleteFromCart(item: any) {
     for(let i = 0; i< this.items.length; i++) {
+      localStorage.removeItem(item)
       if (this.items[i] == item )
       this.items.slice(i, 1)
-      localStorage.removeItem("movie")
+     
+       return this.items     
     }
     console.log(this.items)
   }
